@@ -26,7 +26,7 @@
     "lint:fix": "run-s -c eslint:fix prettier",
     "prepare": "husky",
     "prettier": "npx prettier . --write",
-    "start": "node download-assets.js && npm run build && npm run start:server",
+    "start": "node download-assets.js && npx knex migrate:latest && npm run build && npm run start:server",
     "start:server": "npm run build:server && node dist_server/index.js",
     "type-check": "tsc --noEmit"
   },
