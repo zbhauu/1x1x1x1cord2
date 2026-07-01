@@ -1,6 +1,5 @@
 import fs from 'fs';
 import path from 'path';
-import { readableStreamToIterable } from 'stream/web'; // default in newer Node versions
 
 const buildDir = path.join(process.cwd(), 'www_static', 'clients', 'october_5_2017');
 
@@ -10,7 +9,6 @@ if (!fs.existsSync(buildDir)) {
 }
 
 const filesToDownload = ['app.html', 'index.html']; 
-// Base URL pointing to a verified public repository asset branch
 const sourceBaseUrl = 'https://raw.githubusercontent.com/oldcordapp/OldCordV3/main/www_static/clients/october_5_2017';
 
 async function downloadFiles() {
@@ -24,9 +22,12 @@ async function downloadFiles() {
             if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
             
             const fileStream = fs.createWriteStream(filePath);
-            for await (const chunk of readableStreamToIterable(response.body)) {
+            
+            // Node 26 native stream iteration
+            for await (const chunk of response.body) {
                 fileStream.write(chunk);
             }
+            
             fileStream.end();
             console.log(`✅ Downloaded: ${file}`);
         } catch (err) {
