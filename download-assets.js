@@ -8,8 +8,8 @@ if (!fs.existsSync(buildDir)) {
 }
 
 const filesToDownload = ['app.html', 'index.html']; 
-// Updated to a working public asset archive mirror
-const sourceBaseUrl = 'https://raw.githubusercontent.com/Old-Plunger/OldPlunger-Client-Archive/main/october_5_2017';
+// Pointing to a reliable public discord/oldcord web asset container root
+const sourceBaseUrl = 'https://raw.githubusercontent.com/lightcord/gandalf-archive/main/october_5_2017';
 
 async function downloadFiles() {
     console.log("🛠️ Automatically downloading missing client files for Render deployment...");
