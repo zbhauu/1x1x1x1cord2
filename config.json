@@ -68,14 +68,15 @@
     "enabled": true
   },
   "db_config": {
-    "host": "localhost",
-    "port": 5432,
-    "database": "oldcord_v3",
-    "user": "postgres",
-    "password": "postgres_password"
-  },
+  "host": "dpg-d92f8q0k1i2s73er3kkg-a",
+  "port": 5432,
+  "database": "oldcord_db_5s29",
+  "user": "oldcord_db_user",
+  "password": "taL1Mz0ssmJXDq9vTj7v8SMN5RGTPSUn",
+  "ssl": true
+},
   "email_config": {
-    "fromAddress": "support@example.com",
+    "fromAddress": "renewaltube@gmail.com",
     "brevo-api-key": "",
     "enabled": false
   },
