@@ -3,7 +3,6 @@
   "secure": false,
   "base_url": "https://onex1x1x1cord2.onrender.com",
   "gateway_url": "",
-  "base_url": "https://onex1x1x1cord2.onrender.com",
   "assets_cdn_url": "",
   "media_server_public_ip": false,
   "signaling_server_url": "",
@@ -50,7 +49,7 @@
   },
   "instance": {
     "name": "Staging",
-    "description": "1x1x1x1cord",
+    "description": "An oldcord v3 instance",
     "environment": "staging",
     "legal": {
       "terms": "url",
@@ -69,13 +68,13 @@
     "enabled": true
   },
   "db_config": {
-  "host": "dpg-d92f8q0k1i2s73er3kkg-a",
-  "port": 5432,
-  "database": "oldcord_db_5s29",
-  "user": "oldcord_db_user",
-  "password": "taL1Mz0ssmJXDq9vTj7v8SMN5RGTPSUn",
-  "ssl": true
-},
+    "host": "dpg-d92f8q0k1i2s73er3kkg-a",
+    "port": 5432,
+    "database": "oldcord_db_5s29",
+    "user": "oldcord_db_user",
+    "password": "taL1Mz0ssmJXDq9vTj7v8SMN5RGTPSUn",
+    "ssl": true
+  },
   "email_config": {
     "fromAddress": "renewaltube@gmail.com",
     "brevo-api-key": "",
