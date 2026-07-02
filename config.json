@@ -68,7 +68,7 @@
     "enabled": false
   },
   "db_config": {
-    "host": "dpg-d92f8q0k1i2s73er3kkg-a",
+    "host": "dpg-d92f8q0k1i2s73er3kkg-a.oregon-postgres.render.com",
     "port": 5432,
     "database": "oldcord_db_5s29",
     "user": "oldcord_db_user",
