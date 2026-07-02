@@ -1,6 +1,6 @@
 {
   "token_secret": "35c8...",
-  "secure": false,
+  "secure": true,
   "base_url": "https://onex1x1x1cord2.onrender.com",
   "gateway_url": "",
   "assets_cdn_url": "",
@@ -10,8 +10,8 @@
   "udp_server_port": 6000,
   "port": 1337,
   "ws_port": 1337,
-  "includePortInUrl": true,
-  "includePortInWsUrl": true,
+  "includePortInUrl": false,
+  "includePortInWsUrl": false,
   "cache404s": false,
   "serve_selector": true,
   "intents_required": false,
