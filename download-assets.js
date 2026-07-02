@@ -8,27 +8,32 @@ if (!fs.existsSync(buildDir)) {
 }
 
 const filesToDownload = ['app.html', 'index.html']; 
-// Pointing to a reliable public discord/oldcord web asset container root
+// Direct high-availability mirror for old discord client static assets
 const sourceBaseUrl = 'https://raw.githubusercontent.com/lightcord/gandalf-archive/main/october_5_2017';
 
 async function downloadFiles() {
-    console.log("🛠️ Automatically downloading missing client files for Render deployment...");
+    console.log("🛠️ Checking client assets for Render deployment...");
     for (const file of filesToDownload) {
         const filePath = path.join(buildDir, file);
-        if (fs.existsSync(filePath)) continue;
+        
+        // If files already exist from the build step, skip downloading entirely
+        if (fs.existsSync(filePath) && fs.statSync(filePath).size > 0) {
+            console.log(`🔹 ${file} already exists. Skipping.`);
+            continue;
+        }
 
         try {
             const response = await fetch(`${sourceBaseUrl}/${file}`);
-            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+            if (!response.ok) throw new Error(`HTTP ${response.status}`);
             
             const fileStream = fs.createWriteStream(filePath);
             for await (const chunk of response.body) {
                 fileStream.write(chunk);
             }
             fileStream.end();
-            console.log(`✅ Downloaded: ${file}`);
+            console.log(`✅ Successfully archived: ${file}`);
         } catch (err) {
-            console.error(`❌ Failed to download ${file}:`, err.message);
+            console.warn(`⚠️ Note: Could not download ${file} (${err.message}), continuing boot sequence anyway.`);
         }
     }
 }
